@@ -18,5 +18,7 @@ class MainApplication : Application() {
         super.onCreate()
         Log.d(TAG, "App start")
         FFI.onAppStart(applicationContext)
+        // Context for the legacy (< Android 7) pointer input backend.
+        ShizukuLegacyInput.init(applicationContext)
     }
 }
