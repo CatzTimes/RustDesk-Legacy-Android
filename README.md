@@ -1,6 +1,6 @@
 # RustDesk — Android 5.1 / 6.0 Shizuku 操控支持版
 
-> 独立维护分支 · Independently maintained fork, based on [rustdesk/rustdesk](https://github.com/rustdesk/rustdesk) `1.5.1` (AGPL-3.0)
+> 独立维护分支 · Independently maintained fork, based on [rustdesk/rustdesk](https://github.com/rustdesk/rustdesk) `1.5.3` (AGPL-3.0)
 
 [中文](#中文说明) · [English](#english)
 
@@ -12,7 +12,7 @@
 
 官方 RustDesk 最低支持 **Android 7**。在 Android 5.1 / 6.0（API 22/23）上，被控端只能共享屏幕、无法被远程操控——官方实现依赖的无障碍手势 API（`dispatchGesture`）在这些系统上不存在，且上游已决定不支持 Android < 7（见 [PR #16391](https://github.com/rustdesk/rustdesk/pull/16391)）。
 
-本仓库基于官方 `1.5.1` 源码，为 **Android 5.1 / 6.0** 补齐了被控端操控：通过 [Shizuku](https://github.com/RikkaApps/Shizuku)（免 root，adb 激活）以 shell 权限注入远程指针与按键事件。
+本仓库基于官方 `1.5.3` 源码，为 **Android 5.1 / 6.0** 补齐了被控端操控：通过 [Shizuku](https://github.com/RikkaApps/Shizuku)（免 root，adb 激活）以 shell 权限注入远程指针与按键事件。
 
 > ⚠️ 本仓库为独立维护分支，**不向上游提交 PR**，也**不跟随官方 nightly/每日构建**；仅当官方发布正式版本时，从对应 release tag 合并更新（见[更新策略](#更新策略)）。
 
@@ -47,14 +47,14 @@
 
 ### APK 获取
 
-- [Releases](https://github.com/CatzTimes/rustdesk/releases)：随官方正式版本更新。当前发布 `v1.5.1-shizuku.1`，基于官方 `1.5.1`（历史发布：`v1.5.0-shizuku.1`）。
+- [Releases](https://github.com/CatzTimes/rustdesk/releases)：随官方正式版本更新。当前发布 `v1.5.3-shizuku.1`，基于官方 `1.5.3`（历史发布：`v1.5.0-shizuku.1`、`v1.5.1-shizuku.1`）。
 - [Actions](https://github.com/CatzTimes/rustdesk/actions/workflows/build-android-apk.yml)：可手动触发构建（armv7 + arm64）。
 - 注意：本仓库 APK 为 debug 签名，与官方版签名不同——从官方版切换需**卸载重装**（会清除应用内配置）。
 
 ### 更新策略
 
 - **不**跟随官方 nightly / 每日构建。
-- 官方发布正式版本（如 `1.5.1`、未来的 `1.5.x`）时，从对应 release tag 合并到本分支并发布新包。
+- 官方发布正式版本（如 `1.5.3`、未来的 `1.5.x`）时，从对应 release tag 合并到本分支并发布新包。
 
 ### 已知限制
 
@@ -69,7 +69,7 @@
 
 Official RustDesk supports Android 7+. On Android 5.1/6.0 (API 22/23) a controlled device can share its screen but cannot be remote-controlled: the only injection path upstream implements (`AccessibilityService#dispatchGesture`) does not exist on those versions, and upstream has decided not to support Android < 7 ([PR #16391](https://github.com/rustdesk/rustdesk/pull/16391)).
 
-This fork adds the missing control on top of the official `1.5.1` source: remote pointer and key-code events are injected as the shell user through [Shizuku](https://github.com/RikkaApps/Shizuku) (no root, adb-activated). Keyboard *text* still goes through the accessibility text path — the only non-root way to commit arbitrary text (CJK has no key codes).
+This fork adds the missing control on top of the official `1.5.3` source: remote pointer and key-code events are injected as the shell user through [Shizuku](https://github.com/RikkaApps/Shizuku) (no root, adb-activated). Keyboard *text* still goes through the accessibility text path — the only non-root way to commit arbitrary text (CJK has no key codes).
 
 > This fork does **not** submit PRs upstream and does **not** track nightly builds; it is only updated by merging official **release tags**.
 

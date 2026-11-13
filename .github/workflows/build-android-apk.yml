@@ -187,8 +187,8 @@ jobs:
           popd
           mkdir -p apk-output
           case ${{ matrix.job.arch }} in
-            armv7)  APK_NAME=rustdesk-1.5.1-shizuku-armv7.apk ;;
-            arm64)  APK_NAME=rustdesk-1.5.1-shizuku-arm64.apk ;;
+            armv7)  APK_NAME=rustdesk-1.5.3-shizuku-armv7.apk ;;
+            arm64)  APK_NAME=rustdesk-1.5.3-shizuku-arm64.apk ;;
           esac
           cp flutter/build/app/outputs/flutter-apk/app-*-release.apk apk-output/$APK_NAME
 
